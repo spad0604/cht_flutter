@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "967848729104",
+    "firebase_url": "https://chtflutter-30e78-default-rtdb.firebaseio.com",
+    "project_id": "chtflutter-30e78",
+    "storage_bucket": "chtflutter-30e78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967848729104:android:f4d32de1ed9780f8710895",
+        "android_client_info": {
+          "package_name": "com.example.cht_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlmVHXUt1-mt7prdzvIqtxlnwOwTpvetU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  connectivity_plus: ^6.0.5
   flutter_launcher_icons: ^0.13.1
   restart_app: ^1.2.1
   path_provider: ^2.1.4
@@ -22,6 +23,7 @@ dependencies:
   table_calendar: ^3.1.2
   flutter:
     sdk: flutter
+  firebase_messaging: ^15.1.1
 
 dev_dependencies:
   flutter_test:

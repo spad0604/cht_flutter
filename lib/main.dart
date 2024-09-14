@@ -1,5 +1,6 @@
 import 'package:cht_flutter/database/copy_database.dart';
 import 'package:cht_flutter/database/user_database.dart';
+import 'package:cht_flutter/firebase/fire_api.dart';
 import 'package:cht_flutter/homepage/home_page.dart';
 import 'package:cht_flutter/model/user.dart';
 import 'package:cht_flutter/welcome_screen.dart';
@@ -19,6 +20,7 @@ void main() async {
         messagingSenderId: '967848729104',
         projectId: 'chtflutter-30e78')
   );
+  await FirebaseApi().initNotifications();
   await copyDatabase();
   await firstTime();
   runApp(const MainApp());

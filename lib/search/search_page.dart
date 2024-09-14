@@ -212,7 +212,7 @@ class _MySearchPage extends State<SearchPage> {
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             child: Image.network(
-                                              teacherList[index].image,
+                                              teacherList[index].image != '' ? teacherList[index].image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg',
                                               fit: BoxFit.cover,
                                               height: 150,
                                               width: 100,

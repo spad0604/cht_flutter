@@ -2,6 +2,7 @@ import 'package:cht_flutter/class_id.dart';
 import 'package:cht_flutter/data/data.dart';
 import 'package:cht_flutter/database/class_choose_database.dart';
 import 'package:cht_flutter/model/class_choose.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -331,26 +332,35 @@ class _TimeTable extends State<TimeTable> {
                       },
                     ),
                   )
-                : const SizedBox()
+                : const CircularProgressIndicator()
           ],
         ),
       ),
     );
   }
 
-  void featchData() async {
-    List<ClassChoose> classChooseList = await classdb.fetchAll();
+  Future<void> featchData() async {
 
-    String className = classChooseList[0].class_name;
+    var connectivityResult = await (Connectivity().checkConnectivity());
 
-    int id = getClassId(className);
+    if (connectivityResult.contains(ConnectivityResult.mobile) || connectivityResult.contains(ConnectivityResult.wifi)) {
+      List<ClassChoose> classChooseList = await classdb.fetchAll();
 
-    data = await fetchTableData(id);
+      String className = classChooseList[0].class_name;
 
-    setState(() {
-      _isLoading = false;
-      dropDownValue = classChooseList[0].class_name;
-    });
+      int id = getClassId(className);
+
+      data = await fetchTableData(id);
+
+      setState(() {
+        dropDownValue = classChooseList[0].class_name;
+        _isLoading = false;
+      });
+    }
+    else {
+      setState(() {
+        _isLoading = true;
+      });
+    }
   }
-
 }

@@ -28,28 +28,6 @@ class _MySearchPage extends State<SearchPage> {
                   width: double.infinity,
                   height: 70,
                   color: Colors.blue,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.only(left: 10),
-                              child: const Icon(
-                                Icons.arrow_back,
-                                color: Colors.white,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
                 ),
                 const SizedBox(
                   height: 70,
@@ -145,90 +123,90 @@ class _MySearchPage extends State<SearchPage> {
                   Expanded(
                     child: (teacherList.isNotEmpty && selectedRole == 'GV')
                         ? ListView.builder(
-                            itemCount: teacherList.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                width: double.infinity,
-                                margin: const EdgeInsets.symmetric(
-                                    vertical: 5, horizontal: 10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: Colors.blue,
-                                ),
-                                child: Center(
-                                  child: Container(
-                                    margin: const EdgeInsets.all(10),
-                                    child: Row(
+                      itemCount: teacherList.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 5, horizontal: 10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.blue,
+                          ),
+                          child: Center(
+                            child: Container(
+                              margin: const EdgeInsets.all(10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
                                       children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Họ và tên: ${teacherList[index].name}',
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15),
-                                              ),
-                                              Text(
-                                                'Ngày sinh: ${teacherList[index].birth}',
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15),
-                                              ),
-                                              Text(
-                                                'Số điện thoại: ${teacherList[index].phonenumber}',
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15),
-                                              ),
-                                              Text(
-                                                'Email: ${teacherList[index].email}',
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15),
-                                              ),
-                                              Text(
-                                                'Môn dạy: ${teacherList[index].subject}',
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 15),
-                                              ),
-                                            ],
-                                          ),
+                                        Text(
+                                          'Họ và tên: ${teacherList[index].name}',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
                                         ),
-                                        Expanded(
-                                          flex: 1,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              teacherList[index].image != '' ? teacherList[index].image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg',
-                                              fit: BoxFit.cover,
-                                              height: 150,
-                                              width: 100,
-                                            ),
-                                          ),
+                                        Text(
+                                          'Ngày sinh: ${teacherList[index].birth}',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
+                                        ),
+                                        Text(
+                                          'Số điện thoại: ${teacherList[index].phonenumber}',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
+                                        ),
+                                        Text(
+                                          'Email: ${teacherList[index].email}',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
+                                        ),
+                                        Text(
+                                          'Môn dạy: ${teacherList[index].subject}',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
                                         ),
                                       ],
                                     ),
                                   ),
-                                ),
-                              );
-                            },
-                          )
-                        : const Center(
-                            child: Text('No results found'),
+                                  Expanded(
+                                    flex: 1,
+                                    child: ClipRRect(
+                                      borderRadius:
+                                      BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        teacherList[index].image != '' ? teacherList[index].image : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/434px-Unknown_person.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 150,
+                                        width: 100,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
+                        );
+                      },
+                    )
+                        : const Center(
+                      child: Text('No results found'),
+                    ),
                   ),
                 ],
               ),

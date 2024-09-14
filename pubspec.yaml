@@ -7,6 +7,9 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
+  fluttertoast: ^8.2.8
+  image_picker: ^1.1.2
+  get: ^4.6.6
   connectivity_plus: ^6.0.5
   flutter_launcher_icons: ^0.13.1
   restart_app: ^1.2.1

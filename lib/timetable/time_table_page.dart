@@ -261,7 +261,6 @@ class _TimeTable extends State<TimeTable> {
                     child: ListView.builder(
                       itemCount: data[_dateTime.weekday].length - 1,
                       itemBuilder: (context, index) {
-                        // Danh sách thời gian bắt đầu và kết thúc
                         List<Map<String, String>> timeSlots = [
                           {'start': '6:45', 'end': '7:30'},
                           {'start': '7:35', 'end': '8:20'},
@@ -273,7 +272,7 @@ class _TimeTable extends State<TimeTable> {
                         var time = timeSlots[(index % timeSlots.length)];
 
                         return Container(
-                          margin: const EdgeInsets.only(top: 10),
+                          margin: const EdgeInsets.all(10),
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),

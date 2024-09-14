@@ -9,7 +9,8 @@ class Userdb {
     await database.execute(
       '''CREATE TABLE IF NOT EXISTS $tableName (
         name TEXT PRIMARY KEY,
-        class TEXT NOT NULL
+        class TEXT NOT NULL,
+        image TEXT
       );'''
     );
   }
@@ -17,7 +18,7 @@ class Userdb {
   Future<int> create({required String name, required String className}) async {
     final database = await UserService().database;
     return await database.rawInsert(
-      '''INSERT INTO $tableName (name, class) VALUES (?, ?)''',
+      '''INSERT INTO $tableName (name, class, image) VALUES (?, ?, ?)''',
       [name, className]
     );
   }
@@ -27,6 +28,18 @@ class Userdb {
     return await database.rawUpdate(
         '''UPDATE $tableName SET class = ?''',
         [className]
+    );
+  }
+
+  Future<int> updateUser(String name, String className, String? imagePath) async {
+    final database = await UserService().database;
+    return await database.rawUpdate(
+        '''
+    UPDATE $tableName 
+    SET class = ?, image = ?
+    WHERE name = ?
+    ''',
+        [className, imagePath, name]
     );
   }
 
